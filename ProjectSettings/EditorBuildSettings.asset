@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 116032c91d6814012ac01688eb9bf475
+  - enabled: 1
+    path: Assets/Scenes/JigsawScene.unity
+    guid: dd5e7c6cc941b4b2f8f369b9290487ae
+  - enabled: 1
+    path: Assets/Scenes/ChooseLevel.unity
+    guid: f01dc6fe65a5940efb43580b00ee750e
+  m_configObjects: {}
