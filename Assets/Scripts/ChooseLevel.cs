@@ -78,6 +78,7 @@ public class ChooseLevel : MonoBehaviour
 
     private int GetNxNByLevel(int level)
     {
+        //return 2;
         switch(level)
         {
             case 0: return 2;

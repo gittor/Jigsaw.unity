@@ -27,15 +27,10 @@ public class LevelController : MonoBehaviour {
 
     public JigsawController jc;
 
-    //没什么具体作用，为了调试用
-    public VideoPlayer video;
+    public AnimImage[] LevelImages;
 
     private void Start()
     {
-        video.url = Path.Combine(Application.streamingAssetsPath, string.Format("movie{0}.mov", (curLevel + 1)));
-        print(video.url);
-        video.Play();
-
         jc.Cleanup();
 
         pause.enabled = false;
@@ -45,15 +40,28 @@ public class LevelController : MonoBehaviour {
 
         jc.Split(curNXN);
         jc.Shuffle(RotateMode);
-        jc.Restart(video.url);
-    }
 
-    //开始洗牌动画结束后才让用户可以操作
-    void GameStart()
+        jc.Restart();
+
+		var anim = LevelImages[curLevel];
+		anim.OnTextureChanged += OnTextureChanged;
+		anim.SetActive();
+	}
+
+	private void OnTextureChanged(Texture texture)
+	{
+		TipImage.texture = texture;
+		jc.SetTexture(texture);
+	}
+
+	//开始洗牌动画结束后才让用户可以操作
+	void GameStart()
     {
         pause.enabled = true;
         finish.enabled = true;
-        TipImage.enabled = false;
+
+        TipImage.gameObject.SetActive(false);
+
         ShowTip.isOn = false;
     }
 
@@ -84,6 +92,6 @@ public class LevelController : MonoBehaviour {
 
     public void OnShowTipChanged()
     {
-        TipImage.enabled = ShowTip.isOn;
+        TipImage.gameObject.SetActive(ShowTip.isOn);
     }
 }

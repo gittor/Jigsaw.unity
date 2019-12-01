@@ -21,6 +21,7 @@ public class UserData
             if (mInstance == null)
             {
                 mInstance = new UserData();
+				//mInstance.CurrentLevel = 10;
             }
             return mInstance;
         }

@@ -83,4 +83,9 @@ public class JigTile : MonoBehaviour {
     {
 		return m_mode;
 	}
+
+    public void SetTexture(Texture texture)
+    {
+        jigimg.texture = texture;
+    }
 }

@@ -10,13 +10,13 @@ using System.IO;
 /// </summary>
 public class StartController : MonoBehaviour {
 
-    private VideoPlayer video;
 
-	void Start () {
+	void Start() {
     }
 	
 	public void OnClickStart()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("ChooseLevel");
     }
+
 }

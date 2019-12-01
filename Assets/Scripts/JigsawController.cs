@@ -18,9 +18,6 @@ public class JigsawController : MonoBehaviour, TouchListener
     //开始的时候要打乱各个小拼图块，打乱的方式是将小拼图块随机发送到startRect的矩形区域里
     public RectTransform startRect;
 
-    //用video作为大图
-    public VideoPlayer video;
-
     //建立每个小块时使用的模板
     public GameObject jigtile_mod;
 
@@ -30,8 +27,8 @@ public class JigsawController : MonoBehaviour, TouchListener
     //用户当前操作的小块
     private JigTile m_active;
 
-    //当前被分成了几行几列
-    private int RC;
+	//当前被分成了几行几列
+	private int RC;
 
     private float TileSize
     {
@@ -45,12 +42,18 @@ public class JigsawController : MonoBehaviour, TouchListener
     {
     }
 
-    public void Restart(string videoUrl)
+    public void Restart()
     {
-        video.url = videoUrl;
-        //print(video.url);
-
         StartCoroutine(StartAnimation());
+    }
+
+    //设置使用的大图
+    public void SetTexture(Texture texture)
+    {
+        for (int i = 0; i < m_jigtiles.Count; i++)
+        {
+            m_jigtiles[i].SetTexture(texture);
+        }
     }
 
     //本关卡是否所有小块都已经拼好了
